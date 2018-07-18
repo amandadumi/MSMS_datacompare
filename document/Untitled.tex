@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{geometry} % to change the page dimensions
+\geometry{margin=1in} % for example, change the margins to 2 inches all round
+\usepackage{setspace}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.0}
+
+
+
+\begin{document}
+\title{ A guide to the MSMS data analysis script\vspace{-.8cm}}
+\author{Amanda Dumi and Shiv Upadhyay\vspace{-1cm}}
+\date{\vspace{-.5cm}\small{last updated:\\ \today}}
+\maketitle
+\noindent To put it simply, running the script requires 3 main steps:
+\begin{enumerate}
+\item Format the .csv file
+\item use command line to navigate to the right folder/directory
+\item run the script
+\end{enumerate}
+
+
+\noindent A more detailed description of each step is given below.
+\section{Format the .csv file}
+
+You will be able to manipulate your data and place them in the correct columns using excel.\\
+The format of the .csv file should be as follows:\\
+\indent a) column 1 contains your collected data\\
+\indent b) the data to compare to should be placed in column 4\\
+\indent c) the corresponding ion identity to each mass should be placed in column 5\\
+
+\noindent Notes:\\
+$\bullet$ column 2 can contain any information you want, it will not be manipulated\\
+$\bullet$ column 3 MUST be left empty. Any matches will be printed here\\
+\newpage
+\section{Use command line to navigate to the folder/directory}
+\noindent The command line may seem intimidating, but you only need a few simple commands:\\
+cd : to change directories\\
+echo \%cd\% :  to print the path of the current directory \\
+dir : list what is contained within the current directory\\
+
+\noindent Once you are in a command line window, you will simply type cd path$\backslash$to$\backslash$directory.
+For instance, if you kept your MSMS data folder within Documents the command would look like:\\
+
+\noindent \textbf{cd Documents$\backslash$MSMSdata}\\
+
+\noindent and then press enter. It may be helpful that if you wanted to move up a directory from MSMSdata to Documents, you can simply type:\\
+cd ..\\
+To return to the directory above the one you're in. 
+\section{Run the script}
+to run the script you will simply type:\\
+
+\noindent \textbf{python data\_compare.py}\\
+
+\noindent if the script is running properly, it will remind you about how to format the csv and request and input file name. you will just input the file name and omit the extension( i.e. if the file name is junk.csv, when prompted by the script you will type junk) and press enter. You will then be prompted for your desired output file name. Again, do not add the file extension.
+
+\noindent That's it!
+
+\end{document}
