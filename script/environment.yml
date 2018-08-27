@@ -1,0 +1,7 @@
+name: msms_compare
+channels:
+  - anaconda
+dependencies:
+  - python=3.6
+  - numpy
+  - pandas
