@@ -23,28 +23,24 @@ class MSMS:
         authors: Amanda Dumi and Shiv Upadhyay
         """
 
-        input_msg = """Required format of .csv file:
+        input_msg = """Required format of CSV file:
         a) collected data in column 1
         b) the masses to compare to in column 5
-        c) the identity of the ion in collumn 6
+        c) the identity of the ion in column 6
         """
 
         description='{}\n\n{}'.format(version_msg,input_msg)
         print(description)
         self.path = path
+        if platform == "win32":
+            self.path = r'{}\\'.format(self.path)
+        else:
+            self.out_path = '{}/'.format(self.path)
         self.protein_ID = prot_id
         self.notes = notes
         self.file_names = file_list
         self.mass_accuracy = mass_accuracy
 
-    # def gen_file_list(self):
-    #     if self.file_list != 'none':
-    #         with open(self.file_list, 'r') as f:
-    #             self.file_names = f.readlines()
-    #             for id,file in enumerate(self.file_names):
-    #                 self.file_names[id] = file.replace('\n','')
-    #     if self.single_file !='none':
-    #         self.file_names = [self.single_file]
 
     def set_output(self,out_dir):
         if platform == "win32":
@@ -56,7 +52,7 @@ class MSMS:
 
 
     def analyze(self):
-        col_names = ['collected','retention time','','match?','mass','identity']
+        col_names = ['collected','abundance','retention time','match?','mass','identity']
         for id,file in enumerate(self.file_names):
             print('beginning analysis of {}'.format(file))
             self.df = pd.read_csv('{}{}'.format(self.path,file), names=col_names)
